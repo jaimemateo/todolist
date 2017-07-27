@@ -1,8 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import firebase from 'firebase';
+import BaseContainer from './containers/BaseContainer';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+firebase.initializeApp({
+  apiKey: "AIzaSyBCxIP0kW4idSIYMZw3pRCm5BWVbAFCH0Q",
+  authDomain: "pseudogram-80721.firebaseapp.com",
+  databaseURL: "https://pseudogram-80721.firebaseio.com",
+  projectId: "pseudogram-80721",
+  storageBucket: "pseudogram-80721.appspot.com",
+  messagingSenderId: "300787229028"
+});
+
+ReactDOM.render(<BaseContainer />, document.getElementById('root'));
