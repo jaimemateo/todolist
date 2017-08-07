@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from '../../logo.svg'
 
 import TaskInput from '../../components/TaskInput'
+import VisibleTaskList from '../VisibleTaskList'
 
 class BaseContainer extends Component {
   render() {
@@ -15,6 +16,7 @@ class BaseContainer extends Component {
           This is your to-do list, create tasks and mark them as done!
         </p>
         <TaskInput />
+        <VisibleTaskList />
       </div>
     );
   }

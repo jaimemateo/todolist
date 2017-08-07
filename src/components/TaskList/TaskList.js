@@ -1,12 +1,24 @@
-import React, { Component } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
+import Task from '../Task/'
 
-class TaskList extends Component{
+const TaskList = ({ tasks, onTaskClick }) => (
+  <ul>
+    {tasks.map(task => (
+      <Task key={task.id} {...task} onClick={() => onTaskClick(task.id)} />
+    ))}
+  </ul>
+)
 
-  constructor(props) {
-
-    super(props);
-    
-
-  }
-
+TaskList.propTypes = {
+  tasks: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      completed: PropTypes.bool.isRequired,
+      text: PropTypes.string.isRequired
+    }).isRequired
+  ).isRequired,
+  onTaskClick: PropTypes.func.isRequired
 }
+
+export default TaskList

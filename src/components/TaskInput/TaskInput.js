@@ -1,31 +1,37 @@
-import React, {Component} from 'react';
-import './TaskInput.css'
+import React from 'react';
+import { addTask } from '../../actions';
+import { connect } from 'react-redux';
+import './TaskInput.css';
 
-class TaskInput extends Component {
+let TaskInput = ({ dispatch }) => {
+  let input
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      term: '',
-      items: []
-    };
-
-    //Binds
-    this.onSubmit = this.onSubmit.bind(this);
-  }
-
-  onSubmit(e) {
-    e.preventDefault();
-    this.props.onSubmit(this.state.search);
-  }
-
-  render() {
-    return <form className="Task" onSubmit=={this.onSubmit}>
-        <input value={this.state.term} placeholder="Introduce a new task..." className="Task__Input"></input>
-        <button>Submit</button>
-    </form>;
-  }
+  return (
+    <div>
+      <form
+        onSubmit={e => {
+          e.preventDefault()
+          if (!input.value.trim()) {
+            return
+          }
+          debugger
+          dispatch(addTask(input.value))
+          input.value = ''
+        }}
+      >
+        <input className='Task__Input'
+          ref={node => {
+            input = node
+          }}
+        />
+        <button type="submit">
+          Add Todo
+        </button>
+      </form>
+    </div>
+  )
 }
+
+TaskInput = connect()(TaskInput);
 
 export default TaskInput;

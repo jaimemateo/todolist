@@ -1,8 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
 import firebase from 'firebase';
 import BaseContainer from './containers/BaseContainer';
-import './index.css';
+import './style.css';
+import store from './store.js'
 
 firebase.initializeApp({
   apiKey: "AIzaSyBCxIP0kW4idSIYMZw3pRCm5BWVbAFCH0Q",
@@ -13,4 +15,9 @@ firebase.initializeApp({
   messagingSenderId: "300787229028"
 });
 
-ReactDOM.render(<BaseContainer />, document.getElementById('root'));
+render(
+  <Provider store={store}>
+    <BaseContainer />
+  </Provider>,
+  document.getElementById('root')
+)
