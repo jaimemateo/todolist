@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import logo from '../../logo.svg'
+import logo from '../../logo.svg';
 
-import TaskInput from '../../components/TaskInput'
-import VisibleTaskList from '../VisibleTaskList'
+import TaskInput from '../../components/TaskInput';
+import VisibleTaskList from '../VisibleTaskList';
+import Footer from '../../components/Footer';
 
 class BaseContainer extends Component {
   render() {
@@ -17,6 +18,7 @@ class BaseContainer extends Component {
         </p>
         <TaskInput />
         <VisibleTaskList />
+        <Footer />
       </div>
     );
   }

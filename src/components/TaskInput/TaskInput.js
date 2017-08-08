@@ -14,7 +14,6 @@ let TaskInput = ({ dispatch }) => {
           if (!input.value.trim()) {
             return
           }
-          debugger
           dispatch(addTask(input.value))
           input.value = ''
         }}

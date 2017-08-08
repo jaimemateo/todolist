@@ -2,7 +2,7 @@ let nextTaskId = 0;
 
 export const addTask = text => {
   return {
-    type: 'ADD_TODO',
+    type: 'ADD_TASK',
     id: nextTaskId++,
     text
   }
